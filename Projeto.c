@@ -66,6 +66,24 @@ void sacarReais(Usuario *usuario, double valor, char senha[]) {
     }
 }
 
+void comprarCriptomoeda(Usuario *usuario, char tipo[], double valor, double cotacao, double taxa) {
+    double valorComTaxa = valor + (valor * taxa);
+    if (usuario->carteira.saldoReais >= valorComTaxa) {
+        usuario->carteira.saldoReais -= valorComTaxa;
+        if (strcmp(tipo, "Bitcoin") == 0) {
+            usuario->carteira.saldoBitcoin += valor / cotacao;
+        } else if (strcmp(tipo, "Ethereum") == 0) {
+            usuario->carteira.saldoEthereum += valor / cotacao;
+        } else if (strcmp(tipo, "Ripple") == 0) {
+            usuario->carteira.saldoRipple += valor / cotacao;
+        }
+        printf("Compra realizada: %.2f %s comprados com taxa de %.2f%%\n", valor / cotacao, tipo, taxa * 100);
+    } else {
+        printf("Saldo insuficiente para a compra.\n");
+    }
+}
+
+
 void venderCriptomoeda(Usuario *usuario, char tipo[], double valor, double cotacao, double taxa) {
     double valorComTaxa = valor - (valor * taxa);
     if (strcmp(tipo, "Bitcoin") == 0 && usuario->carteira.saldoBitcoin >= valor / cotacao) {
@@ -158,7 +176,12 @@ int main() {
                     printf("%s - %s - Valor: %.2f - Taxa: %.2f%%\n", usuarios[indiceUsuario].transacoes[i].data, usuarios[indiceUsuario].transacoes[i].operacao, usuarios[indiceUsuario].transacoes[i].valor, usuarios[indiceUsuario].transacoes[i].taxa * 100);
                 }
                 break;
-            case 3: {
+            case 3:  {
+                double valor;
+                printf("Digite o valor a depositar: ");
+                scanf("%lf", &valor);
+                depositarReais(&usuarios[indiceUsuario], valor);
+                break;
             }
             case 4: {
                 double valor;
