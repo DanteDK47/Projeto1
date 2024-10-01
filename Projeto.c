@@ -150,3 +150,71 @@ int main() {
                     printf("%s - %s - Valor: %.2f - Taxa: %.2f%%\n", usuarios[indiceUsuario].transacoes[i].data, usuarios[indiceUsuario].transacoes[i].operacao, usuarios[indiceUsuario].transacoes[i].valor, usuarios[indiceUsuario].transacoes[i].taxa * 100);
                 }
                 break;
+            case 3: {
+            }
+            case 4: {
+                double valor;
+                printf("Digite o valor a sacar: ");
+                scanf("%lf", &valor);
+                printf("Digite sua senha: ");
+                scanf("%s", senha);
+                sacarReais(&usuarios[indiceUsuario], valor, senha);
+                break;
+            }
+            case 5: {
+                char tipo[10];
+                double valor;
+                printf("Digite o tipo de criptomoeda (Bitcoin, Ethereum, Ripple): ");
+                scanf("%s", tipo);
+                printf("Digite o valor a comprar: ");
+                scanf("%lf", &valor);
+                printf("Digite sua senha: ");
+                scanf("%s", senha);
+                if (strcmp(senha, usuarios[indiceUsuario].carteira.senha) == 0) {
+                    if (strcmp(tipo, "Bitcoin") == 0) {
+                        comprarCriptomoeda(&usuarios[indiceUsuario], tipo, valor, cotacaoBitcoin, 0.02);
+                    } else if (strcmp(tipo, "Ethereum") == 0) {
+                        comprarCriptomoeda(&usuarios[indiceUsuario], tipo, valor, cotacaoEthereum, 0.01);
+                    } else if (strcmp(tipo, "Ripple") == 0) {
+                        comprarCriptomoeda(&usuarios[indiceUsuario], tipo, valor, cotacaoRipple, 0.01);
+                    } else {
+                        printf("Tipo de criptomoeda invalido.\n");
+                    }
+                } else {
+                    printf("Senha incorreta.\n");
+                }
+                break;
+            }
+            case 6: {
+                char tipo[10];
+                double valor;
+                printf("Digite o tipo de criptomoeda (Bitcoin, Ethereum, Ripple): ");
+                scanf("%s", tipo);
+                printf("Digite o valor a vender: ");
+                scanf("%lf", &valor);
+                if (strcmp(tipo, "Bitcoin") == 0) {
+                    venderCriptomoeda(&usuarios[indiceUsuario], tipo, valor, cotacaoBitcoin, 0.03);
+                } else if (strcmp(tipo, "Ethereum") == 0) {
+                    venderCriptomoeda(&usuarios[indiceUsuario], tipo, valor, cotacaoEthereum, 0.02);
+                } else if (strcmp(tipo, "Ripple") == 0) {
+                    venderCriptomoeda(&usuarios[indiceUsuario], tipo, valor, cotacaoRipple, 0.01);
+                } else {
+                    printf("Tipo de criptomoeda invalido.\n");
+                }
+                break;
+            }
+            case 7:
+                atualizarCotacao(cotacaoBitcoin, cotacaoEthereum, cotacaoRipple, &cotacaoBitcoin, &cotacaoEthereum, &cotacaoRipple);
+                printf("Cotacoes atualizadas!\n");
+                break;
+            case 8:
+                salvarDados(usuarios, numUsuarios);
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opcao invalida.\n");
+                break;
+        }
+    } while (opcao != 8);
+    return 0;
+}
