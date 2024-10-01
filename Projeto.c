@@ -49,15 +49,20 @@ void exibirMenu() {
     printf("8. Sair\n");
 }
 void depositarReais(Usuario *usuario, double valor) {
-            usuario->carteira.saldoBitcoin += valor / cotacao;
-        } else if (strcmp(tipo, "Ethereum") == 0) {
-            usuario->carteira.saldoEthereum += valor / cotacao;
-        } else if (strcmp(tipo, "Ripple") == 0) {
-            usuario->carteira.saldoRipple += valor / cotacao;
+    usuario->carteira.saldoReais += valor;
+    printf("Deposito realizado com sucesso. Novo saldo de reais: %.2f\n", usuario->carteira.saldoReais);
+}
+
+void sacarReais(Usuario *usuario, double valor, char senha[]) {
+    if (strcmp(usuario->carteira.senha, senha) == 0) {
+        if (usuario->carteira.saldoReais >= valor) {
+            usuario->carteira.saldoReais -= valor;
+            printf("Saque realizado com sucesso. Novo saldo de reais: %.2f\n", usuario->carteira.saldoReais);
+        } else {
+            printf("Saldo insuficiente.\n");
         }
-        printf("Compra realizada: %.2f %s comprados com taxa de %.2f%%\n", valor / cotacao, tipo, taxa * 100);
     } else {
-        printf("Saldo insuficiente para a compra.\n");
+        printf("Senha incorreta.\n");
     }
 }
 
