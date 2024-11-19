@@ -10,8 +10,8 @@ Este é um projeto de Criptomoedas que permite realizar várias operações. Voc
 ## Como Usar
 
 1. Ao iniciar o programa, insira seu CPF e senha. Para testes, você pode usar:
-   - CPF: `12345678901`
-   - Senha: `senha123`
+   - CPF: `admin`
+   - Senha: `admin123`
 
 2. Após o login, um menu aparecerá. Você pode escolher as opções digitando o número da operação que você quer fazer.
 
@@ -20,6 +20,5 @@ Este é um projeto de Criptomoedas que permite realizar várias operações. Voc
 4. Para sair do programa, escolha a opção de saída no menu.
 
 ## Nomes e Matrículas
-- Dante Ryuichi Kawazu - 24.124.008-4
 - Davi Figueiredo Martins - 24.124.015-9
 - Luan Poggi de Azevedo - 24.124.023-3
