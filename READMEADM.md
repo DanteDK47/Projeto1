@@ -1,6 +1,3 @@
-Aqui está a versão ajustada do texto, organizada visualmente para melhor leitura e clareza:
-
----
 
 # **Sistema de Exchange de Criptomoedas - Módulo Administrador**
 
@@ -124,9 +121,7 @@ Após o login bem-sucedido, o menu do administrador será exibido com as seguint
 ---
 
 ## **Nomes e Matrículas**
-- Nome: **[Seu Nome Aqui]**
-- Matrícula: **[Sua Matrícula Aqui]**
-
----
-
-Se precisar de mais ajustes ou uma modificação no layout, me avise!
+- Nome: **[Davi Martins]**
+- Matrícula: **[24.124.015-9]**
+- - Nome: **[Luan Azevedo]**
+- Matrícula: **[24.124.023-3]**
