@@ -1,73 +1,132 @@
-Sistema de Exchange de Criptomoedas - Módulo Administrador
-Descrição do Projeto
-Este projeto implementa um sistema de exchange de criptomoedas com um módulo de administração. O módulo permite o gerenciamento de investidores e criptomoedas na plataforma. O administrador tem a capacidade de cadastrar e excluir investidores, cadastrar e excluir criptomoedas, e atualizar as cotações das criptomoedas. Este sistema é feito em C e mantém um controle dos dados utilizando estruturas de dados (structs) para armazenar as informações dos investidores e criptomoedas.
+Aqui está a versão ajustada do texto, organizada visualmente para melhor leitura e clareza:
 
-Funcionalidades
-1. Login do Administrador
-O administrador faz login utilizando um CPF e uma senha (padrão: CPF = admin, Senha = admin123). Após um login bem-sucedido, o menu principal de administração é exibido.
+---
 
-2. Cadastrar Investidor
-A função cadastrarInvestidor() permite ao administrador cadastrar um novo investidor. O administrador pode fornecer o CPF, a senha e o saldo inicial em reais do investidor. A função verifica se o número máximo de investidores foi atingido e, em seguida, adiciona o investidor à lista de investidores.
+# **Sistema de Exchange de Criptomoedas - Módulo Administrador**
 
-3. Excluir Investidor
-A função excluirInvestidor() permite ao administrador excluir um investidor existente, fornecendo o CPF do investidor a ser removido. O administrador confirma a exclusão, e a função busca o investidor na lista para removê-lo.
+## **Descrição do Projeto**
+Este projeto implementa um sistema de exchange de criptomoedas com um módulo de administração. O módulo permite o gerenciamento de investidores e criptomoedas na plataforma. O administrador tem a capacidade de:
+- Cadastrar e excluir investidores.
+- Cadastrar e excluir criptomoedas.
+- Atualizar as cotações das criptomoedas.
 
-4. Cadastrar Criptomoeda
-A função cadastrarCriptomoeda() permite ao administrador adicionar uma nova criptomoeda à plataforma. A criptomoeda é registrada com nome, cotação inicial, taxa de compra e taxa de venda. A função verifica se o número máximo de criptomoedas foi atingido antes de realizar o cadastro.
+O sistema é desenvolvido em C e utiliza estruturas de dados (`struct`) para armazenar informações dos investidores e criptomoedas.
 
-5. Excluir Criptomoeda
-A função excluirCriptomoeda() permite ao administrador remover uma criptomoeda da plataforma. O administrador fornece o nome da criptomoeda a ser excluída, e a função busca a criptomoeda na lista e a remove.
+---
 
-6. Atualizar Cotações
-A função atualizarCotacoes() simula uma atualização de cotações das criptomoedas. O sistema gera uma variação aleatória de até 10% (positiva ou negativa) para a cotação inicial de cada criptomoeda cadastrada. A atualização é feita para todas as criptomoedas registradas no sistema.
+## **Funcionalidades**
+### **1. Login do Administrador**
+O administrador faz login utilizando um CPF e uma senha.  
+- **Credenciais padrão**:
+  - CPF: `admin`
+  - Senha: `admin123`
 
-7. Menu do Administrador
-O administrador pode acessar as funções acima através do menu principal. O menu oferece as seguintes opções:
+Após o login, o menu principal de administração é exibido.
 
-Cadastrar Investidor
-Excluir Investidor
-Cadastrar Criptomoeda
-Excluir Criptomoeda
-Atualizar Cotações
-Sair
-8. Saída
-Quando o administrador decide sair do programa, a função menuAdministrador() encerra a execução do sistema.
+---
 
-Como Compilar e Executar
-Compilação
-Para compilar o programa, siga os seguintes passos:
+### **2. Cadastrar Investidor**
+- Permite cadastrar novos investidores na plataforma.
+- Informações necessárias:
+  - CPF.
+  - Senha.
+  - Saldo inicial em reais.
+- A função verifica se o limite máximo de investidores foi atingido antes do cadastro.
 
-Abra o terminal ou prompt de comando.
-Navegue até o diretório onde o arquivo do código fonte está salvo.
-bash
-cd /caminho/para/o/diretorio
-Compile o código com o compilador GCC:
-bash
-gcc -o exchangeCripto sistema_exchange.c
-Esse comando gerará um arquivo executável chamado exchangeCripto.
-Execução
-Para rodar o programa, use o seguinte comando:
+---
 
-bash
+### **3. Excluir Investidor**
+- Permite excluir um investidor existente pelo CPF.
+- Busca o investidor na lista e remove após confirmação.
+
+---
+
+### **4. Cadastrar Criptomoeda**
+- Permite adicionar novas criptomoedas à plataforma.
+- Informações necessárias:
+  - Nome da criptomoeda.
+  - Cotação inicial.
+  - Taxas de compra e venda.
+- A função verifica se o limite máximo de criptomoedas foi atingido antes do cadastro.
+
+---
+
+### **5. Excluir Criptomoeda**
+- Permite excluir uma criptomoeda existente pelo nome.
+- Busca a criptomoeda na lista e a remove após confirmação.
+
+---
+
+### **6. Atualizar Cotações**
+- Simula uma atualização de cotações das criptomoedas:
+  - Gera variações aleatórias de até **±10%** para a cotação inicial de cada criptomoeda cadastrada.
+- A atualização é feita para todas as criptomoedas registradas.
+
+---
+
+### **7. Menu do Administrador**
+O menu principal exibe as seguintes opções:
+1. Cadastrar Investidor.
+2. Excluir Investidor.
+3. Cadastrar Criptomoeda.
+4. Excluir Criptomoeda.
+5. Atualizar Cotações.
+6. Sair.
+
+---
+
+### **8. Saída**
+Ao selecionar a opção "Sair", o programa encerra a execução.
+
+---
+
+## **Como Compilar e Executar**
+### **Compilação**
+1. Abra o terminal ou prompt de comando.
+2. Navegue até o diretório onde o código fonte está salvo:
+   ```bash
+   cd /caminho/para/o/diretorio
+   ```
+3. Compile o código usando o GCC:
+   ```bash
+   gcc -o exchangeCripto sistema_exchange.c
+   ```
+   Isso gerará um arquivo executável chamado `exchangeCripto`.
+
+---
+
+### **Execução**
+Para executar o programa, utilize o comando:
+```bash
 ./exchangeCripto
-Isso iniciará o programa e permitirá que o administrador faça login e acesse o menu para gerenciar os investidores e criptomoedas.
+```
+O programa será iniciado, e o administrador poderá fazer login para acessar o menu principal.
 
-Como Usar
-Login: Ao iniciar o programa, será solicitado que o administrador forneça um CPF e uma senha. Use as credenciais padrão:
+---
 
-CPF: admin
-Senha: admin123
-Menu Principal: Após o login bem-sucedido, o menu do administrador será exibido, com as opções para cadastrar e excluir investidores e criptomoedas, atualizar cotações e sair.
+## **Como Usar**
+### **1. Login**
+Ao iniciar o programa, insira o CPF e a senha.  
+- **Credenciais padrão para testes**:
+  - CPF: `admin`
+  - Senha: `admin123`
 
-Cadastrar Investidores: O administrador pode adicionar novos investidores, especificando o CPF, a senha e o saldo inicial.
+---
 
-Cadastrar Criptomoedas: O administrador pode registrar novas criptomoedas, incluindo nome, cotação inicial e taxas de compra e venda.
+### **2. Menu Principal**
+Após o login bem-sucedido, o menu do administrador será exibido com as seguintes opções:
+- **Cadastrar Investidores**: Adicione novos investidores especificando o CPF, senha e saldo inicial.
+- **Cadastrar Criptomoedas**: Registre novas criptomoedas, informando nome, cotação inicial e taxas.
+- **Excluir Investidores e Criptomoedas**: Remova investidores ou criptomoedas informando os dados necessários.
+- **Atualizar Cotações**: Realize atualizações aleatórias nas cotações de todas as criptomoedas cadastradas.
+- **Sair**: Encerre o programa.
 
-Excluir Investidores e Criptomoedas: O administrador pode remover investidores e criptomoedas fornecendo as informações necessárias, como CPF ou nome da criptomoeda.
+---
 
-Atualizar Cotações: O administrador pode atualizar as cotações das criptomoedas com variações aleatórias.
+## **Nomes e Matrículas**
+- Nome: **[Seu Nome Aqui]**
+- Matrícula: **[Sua Matrícula Aqui]**
 
-Sair: O administrador pode sair do programa ao selecionar a opção "Sair" no menu.
+---
 
-Conclusão
-Este sistema foi projetado para simular a administração de uma exchange de criptomoedas. O administrador tem a capacidade de gerenciar os investidores, as criptomoedas e suas cotações de maneira simples e eficiente.
+Se precisar de mais ajustes ou uma modificação no layout, me avise!
